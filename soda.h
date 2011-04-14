@@ -13,45 +13,48 @@
 /*
  * game_state_t: Game state values.
  */
-typedef enum {
-    INITIAL      = 0,
-    PLAYING      = 1,
-    ROUND_CHANGE = 2,
-    GAME_OVER    = 3
+typedef enum
+{
+        INITIAL      = 0,
+        PLAYING      = 1,
+        ROUND_CHANGE = 2,
+        GAME_OVER    = 3
 } game_state_t;
 
 
-/* 
+/*
  * id_t: Number that identifies a drawable object on the screen, except for
  *       the map.
  */
-typedef enum {
-    NOTHING          =  0,
-    PLAYER           =  1,
-    TROOPER          =  2,
-    DEMON            =  3,
-    BULL             =  4,
-    CYBERBULL        =  5,
-    PLAYER_ATTACK    =  6,  // Painful sprites
-    TROOPER_ATTACK   =  7,
-    DEMON_ATTACK     =  8,
-    BULL_ATTACK      =  9,
-    CYBERBULL_ATTACK = 10,
-    ID_T_MAX         = 11   // Leave this one as the last
+typedef enum
+{
+        NOTHING          =  0,
+        PLAYER           =  1,
+        TROOPER          =  2,
+        DEMON            =  3,
+        BULL             =  4,
+        CYBERBULL        =  5,
+        PLAYER_ATTACK    =  6,  // Painful sprites
+        TROOPER_ATTACK   =  7,
+        DEMON_ATTACK     =  8,
+        BULL_ATTACK      =  9,
+        CYBERBULL_ATTACK = 10,
+        ID_T_MAX         = 11   // Leave this one as the last
 } id_t;
 
 
 /*
  * action_t: Enum to hold a possible action of an item.
  */
-typedef enum {
-    NONE         = 0, // Don't display it
-    AIMING       = 1, // Shooting pose
-    MOVING       = 2,
-    SHOOTING     = 3, // Firing
-    HIT          = 4,
-    DYING        = 5,
-    ACTION_T_MAX = 6
+typedef enum
+{
+        NONE         = 0, // Don't display it
+        AIMING       = 1, // Shooting pose
+        MOVING       = 2,
+        SHOOTING     = 3, // Firing
+        HIT          = 4,
+        DYING        = 5,
+        ACTION_T_MAX = 6
 } action_t;
 
 
@@ -59,28 +62,29 @@ typedef enum {
  * item_t: Struct that represents the complete state of an item on the
  *          screen.
  */
-typedef struct {
-    // State info
-    id_t     type;
-    action_t action;
-    action_t previous_action;
-    // Displacement info
-    int  direction;
-    int  x_pos;
-    int  z_pos;
-    int  h_increment;
-    int  v_increment;
-    // Sprite metrics
-    int  box_width;
-    int  box_height;
-    int  h_frame_shift;
-    int  v_frame_shift;
-    // Misc info
-    int  overlay;     // Overlay object occuping the same cell
-    int  strength;    // Remainig hits until death, for attacks is pain effect
-    // Animation info
-    unsigned int delay;   // Animation info
-    unsigned int frame;
+typedef struct
+{
+        // State info
+        id_t     type;
+        action_t action;
+        action_t previous_action;
+        // Displacement info
+        int  direction;
+        int  x_pos;
+        int  z_pos;
+        int  h_increment;
+        int  v_increment;
+        // Sprite metrics
+        int  box_width;
+        int  box_height;
+        int  h_frame_shift;
+        int  v_frame_shift;
+        // Misc info
+        int  overlay;     // Overlay object occuping the same cell
+        int  strength;    // Remainig hits until death, for attacks is pain effect
+        // Animation info
+        unsigned int delay;   // Animation info
+        unsigned int frame;
 } item_t;
 
 /*

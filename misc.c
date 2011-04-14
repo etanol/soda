@@ -16,9 +16,9 @@
  */
 static void CleanUp (void)
 {
-    CleanUpGame();
-    CleanUpGraphics();
-    SDL_Quit();
+        CleanUpGame();
+        CleanUpGraphics();
+        SDL_Quit();
 }
 
 
@@ -28,8 +28,8 @@ static void CleanUp (void)
  */
 void Quit (void)
 {
-    CleanUp();
-    exit( EXIT_SUCCESS );
+        CleanUp();
+        exit(EXIT_SUCCESS);
 }
 
 
@@ -39,13 +39,13 @@ void Quit (void)
  */
 void Warning (const char *msg, ...)
 {
-    va_list args;
+        va_list args;
 
-    fputs( "S.O.D. WARNING: ", stderr );
-    va_start( args, msg );
-    vfprintf( stderr, msg, args );
-    va_end( args );
-    fprintf( stderr, "\nSDL ERROR: %s\n", SDL_GetError() );
+        fputs("S.O.D. WARNING: ", stderr);
+        va_start(args, msg);
+        vfprintf(stderr, msg, args);
+        va_end(args);
+        fprintf(stderr, "\nSDL ERROR: %s\n", SDL_GetError());
 }
 
 
@@ -55,15 +55,15 @@ void Warning (const char *msg, ...)
  */
 void Fatal (const char *msg, ...)
 {
-    va_list args;
+        va_list args;
 
-    fputs( "S.O.D. ERROR: ", stderr );
-    va_start( args, msg );
-    vfprintf( stderr, msg, args );
-    va_end( args );
-    fprintf( stderr, "\nSDL ERROR: %s\n", SDL_GetError() );
-    CleanUp();
-    exit( EXIT_FAILURE );
+        fputs("S.O.D. ERROR: ", stderr);
+        va_start(args, msg);
+        vfprintf(stderr, msg, args);
+        va_end(args);
+        fprintf(stderr, "\nSDL ERROR: %s\n", SDL_GetError());
+        CleanUp();
+        exit(EXIT_FAILURE);
 }
 
 
@@ -73,10 +73,10 @@ void Fatal (const char *msg, ...)
  */
 char *MediaFile (const char *name)
 {
-    static char media_path[PATH_MAX];
+        static char media_path[PATH_MAX];
 
-    snprintf( media_path, PATH_MAX, "%s/%s", DATA_DIRECTORY, name );
-    return media_path;
+        snprintf(media_path, PATH_MAX, "%s/%s", DATA_DIRECTORY, name);
+        return media_path;
 }
 
 
@@ -85,15 +85,16 @@ char *MediaFile (const char *name)
  */
 Uint32 ChangeState (Uint32 interval, void *param)
 {
-    switch( g_GameState ) {
+        switch (g_GameState)
+        {
         case ROUND_CHANGE:
-            g_GameState = PLAYING;
-            break;
+                g_GameState = PLAYING;
+                break;
         case GAME_OVER:
-            g_GameState = INITIAL;
+                g_GameState = INITIAL;
         default:
-            break;
-    }
-    return 0;
+                break;
+        }
+        return 0;
 }
 

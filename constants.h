@@ -39,12 +39,12 @@
 #define ROWS_MAX     (((Z_MAX - Z_MIN) / CELL_HEIGHT) + 1)
 #define COLS_MAX     (SCREEN_WIDTH / CELL_WIDTH)
 
-#define PLAYER_VERT_SPEED    4 
+#define PLAYER_VERT_SPEED    4
 #define PLAYER_HORIZ_SPEED   4
 #define PLAYER_ATTACK_SPEED 16
 #define ENEMY_VERT_SPEED     2
-#define ENEMY_HORIZ_SPEED    2 
-#define ENEMY_ATTACK_SPEED  10 
+#define ENEMY_HORIZ_SPEED    2
+#define ENEMY_ATTACK_SPEED  10
 
 #define CENTER_WIDTH(x)  ((SCREEN_WIDTH / 2) - ((x) / 2))
 #define CENTER_HEIGHT(x) ((SCREEN_HEIGHT / 2) - ((x) / 2))
@@ -55,16 +55,17 @@
 #define FONT_ZERO            2   // Row where '0' is
 
 #define HEALTH_XPOS         10
-#define HEALTH_YPOS         10 
-#define HEALTH_HEIGHT       20 
+#define HEALTH_YPOS         10
+#define HEALTH_HEIGHT       20
 
-struct metrics {
-    char *filename;
-    int   h_frame_shift;
-    int   v_frame_shift;
-    int   box_width;
-    int   box_height;
-    int   strength;
+struct metrics
+{
+        char *filename;
+        int   h_frame_shift;
+        int   v_frame_shift;
+        int   box_width;
+        int   box_height;
+        int   strength;
 };
 
 extern const struct metrics c_Metrics[ID_T_MAX];

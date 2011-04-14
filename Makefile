@@ -7,7 +7,7 @@ objects  := soda.o input.o graphics.o scene.o item.o game.o misc.o constants.o
 wobjects := $(patsubst %.o, %.obj, $(objects))
 wdist    := soda_win32
 
-ARCH       := 
+ARCH       :=
 COMP_FLAGS := -O2 -Wall -pipe -fomit-frame-pointer
 LINK_FLAGS := -Wl,-s,-O1
 SDL_SDK    := $(HOME)/SDL-1.2.9
@@ -23,7 +23,7 @@ MLDFLAGS := $(LINK_FLAGS) -L$(SDL_SDK)/lib -lmingw32 -lSDLmain -lSDL -mwindows
 all: $(binary)
 
 $(binary).exe: $(wobjects)
-	@echo "LD [win32] $@" && $(MINGW) -o $@ $^ $(MLDFLAGS) 
+	@echo "LD [win32] $@" && $(MINGW) -o $@ $^ $(MLDFLAGS)
 
 $(binary): $(objects)
 	@echo "LD  $@" && $(CC) $(LDFLAGS) -o $@ $^
@@ -39,7 +39,7 @@ windist: $(binary).exe
 
 .SUFFIXES:
 .SUFFIXES: .c .o .obj .s
-.c.o: 
+.c.o:
 	@echo "CC  $@" && $(CC) $(CFLAGS) -c $<
 
 .c.s:
