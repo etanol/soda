@@ -10,12 +10,12 @@ wdist    := soda_win32
 ARCH       :=
 COMP_FLAGS := -O2 -Wall -pipe -fomit-frame-pointer
 LINK_FLAGS := -Wl,-s,-O1
-SDL_SDK    := $(HOME)/SDL-1.2.9
+SDL_SDK    := SDL-1.2.14
 
 CC       ?= /usr/bin/gcc
 MINGW    ?= /usr/bin/i586-mingw32msvc-gcc
 CFLAGS   := $(COMP_FLAGS) $(ARCH) $(shell sdl-config --cflags)
-MFLAGS   := $(COMP_FLAGS) -I$(SDL_SDK)/include -Dmain=SDL_main
+MFLAGS   := $(COMP_FLAGS) -I$(SDL_SDK)/include/SDL -D_GNU_SOURCE=1 -Dmain=SDL_main
 
 LDFLAGS  := $(LINK_FLAGS) $(shell sdl-config --libs)
 MLDFLAGS := $(LINK_FLAGS) -L$(SDL_SDK)/lib -lmingw32 -lSDLmain -lSDL -mwindows
