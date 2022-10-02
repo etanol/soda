@@ -26,7 +26,7 @@ $(binary).exe: $(wobjects)
 	@echo "LD [win32] $@" && $(MINGW) -o $@ $^ $(MLDFLAGS)
 
 $(binary): $(objects)
-	@echo "LD  $@" && $(CC) $(LDFLAGS) -o $@ $^
+	@echo "LD  $@" && $(CC) -o $@ $^ $(LDFLAGS)
 
 $(objects): constants.h soda.h
 $(wobjects): constants.h soda.h
@@ -51,4 +51,3 @@ windist: $(binary).exe
 .PHONY: clean windist
 clean:
 	@-rm -rfv $(wobjects) $(objects) $(binary) $(binary).exe $(wdist)
-	
