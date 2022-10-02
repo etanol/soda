@@ -15,7 +15,7 @@ int    m_FreeItem;
 /*
  * NewItem - Initializes item at i position. Also updates the cell.
  */
-void NewItem (id_t type, int index, int row, int col)
+void NewItem (oid_t type, int index, int row, int col)
 {
         if (g_Cell[row][col] >= 0)
         {

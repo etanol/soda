@@ -23,8 +23,8 @@ typedef enum
 
 
 /*
- * id_t: Number that identifies a drawable object on the screen, except for
- *       the map.
+ * oid_t: Number that identifies a drawable object on the screen, except for
+ *        the map.
  */
 typedef enum
 {
@@ -40,7 +40,7 @@ typedef enum
         BULL_ATTACK      =  9,
         CYBERBULL_ATTACK = 10,
         ID_T_MAX         = 11   // Leave this one as the last
-} id_t;
+} oid_t;
 
 
 /*
@@ -65,7 +65,7 @@ typedef enum
 typedef struct
 {
         // State info
-        id_t     type;
+        oid_t    type;
         action_t action;
         action_t previous_action;
         // Displacement info
@@ -121,7 +121,7 @@ extern void AnimateScene (void);
 extern void DrawScene    (void);
 
 /*** item.c ***/
-extern void NewItem   (id_t, int, int, int);
+extern void NewItem   (oid_t, int, int, int);
 extern void NewAttack (item_t *);
 extern void DoHit     (int, int, int, int);
 
